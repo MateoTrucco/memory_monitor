@@ -1,0 +1,1 @@
+A read-only Python memory monitor built with psutil. The browser demo uses sample memory values because web pages cannot inspect the host operating system directly.

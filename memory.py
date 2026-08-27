@@ -1,0 +1,33 @@
+"""Memory metrics with no process manipulation."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+import psutil
+
+
+@dataclass(frozen=True, slots=True)
+class MemorySnapshot:
+    total_mb: int
+    available_mb: int
+    used_mb: int
+    percent: float
+
+
+def get_memory_snapshot() -> MemorySnapshot:
+    memory = psutil.virtual_memory()
+    divisor = 1024 * 1024
+    return MemorySnapshot(
+        total_mb=round(memory.total / divisor),
+        available_mb=round(memory.available / divisor),
+        used_mb=round(memory.used / divisor),
+        percent=float(memory.percent),
+    )
+
+
+def format_snapshot(snapshot: MemorySnapshot) -> str:
+    return (
+        f"Used: {snapshot.used_mb:,} MB / {snapshot.total_mb:,} MB "
+        f"({snapshot.percent:.1f}%) — Available: {snapshot.available_mb:,} MB"
+    )
