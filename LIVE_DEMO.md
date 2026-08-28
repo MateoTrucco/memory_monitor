@@ -1,7 +1,7 @@
-# Live demo
+# Live experience
 
-Open: **https://mateotrucco.github.io/memory_monitor/**
+**[Open Memory Monitor](https://mateotrucco.github.io/memory_monitor/)**
 
-Demo type: **os_sim**
+Runtime: **Repository Python model via Pyodide with sample telemetry**
 
-The repository README explains whether the browser executes original project logic, the native web app, or a safe simulator for platform/backend-only behavior.
+The repository README covers local setup, tested behavior and the relationship between this browser experience and the full application.
